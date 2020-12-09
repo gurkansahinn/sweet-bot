@@ -13,7 +13,7 @@ Bot.prototype.token = function token() {
 }
 
 Bot.prototype.setStatus = function setStatus(statusType, statusText, statusUrl) {
-    this.client.user.setStatus("Online");
+    this.client.user.setStatus(statusType);
     this.client.user.setActivity(statusText, { type: "STREAMING", url: statusUrl })
 }
 
