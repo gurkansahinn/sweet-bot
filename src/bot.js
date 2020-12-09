@@ -20,7 +20,7 @@ Bot.prototype.setStatus = function setStatus(statusType, statusText, statusUrl) 
 client.on('ready', () => {
     const bot = require("../main");
 
-    console.log(`${client.user.tag} aktif!`);
+    console.log(`${client.user.tag} aktif edildi!`);
     bot.setStatus("Online", "SA-MP Geliştirici Topluluğu", "https://discord.gg/Df4Bv2ewgw");
 });
 
