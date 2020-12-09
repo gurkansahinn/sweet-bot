@@ -2,3 +2,4 @@
 (TR) SA-MP Geliştirici topluluğu için özel olarak geliştirilen açık kaynak kodlu discord botu.
 
 # Nasıl geliştirebilirim? Nasıl destek olabilirim?
+Gece rüyalarında görüyor musun?
