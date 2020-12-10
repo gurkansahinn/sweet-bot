@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
-const Bot = require("./src/bot");
+const Sweet = require("./src/sweet");
 dotenv.config();
 
-const bot = new Bot(process.env.TOKEN);
+const bot = new Sweet(process.env.TOKEN);
 module.exports = bot;
