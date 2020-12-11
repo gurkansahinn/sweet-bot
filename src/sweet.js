@@ -78,8 +78,7 @@ async function getLeaderBoardData(url = '') {
     };
 
     const response = await fetch(url, cookieData);
-    const responseText = await (response).text();
-    return responseText;
+    return response.text();
 }
 
 module.exports = Sweet;
