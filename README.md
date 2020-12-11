@@ -7,5 +7,5 @@ Sağ üst tarafta bulunan Fork butonuna tıklayın ve kendi github profilinizde 
 
 # Yapılacaklar Listesi
 + Advent Of Code API'ı ile tam zamanlı listeye erişim. (yapıldı)
--
+- Sweet ile birlikte anlık sohbet edilebilecek.
 -
