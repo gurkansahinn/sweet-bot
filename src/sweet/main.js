@@ -55,7 +55,7 @@ client.on("message", async (message) => {
     console.log("test");
     if (!message.content.startsWith("!") || message.author.bot) return;
 
-    const args = message.content.slice(process.env.prefix.length).trim().split(/ +/);
+    const args = message.content.slice(1).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
     console.log("tset");
