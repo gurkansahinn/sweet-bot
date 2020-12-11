@@ -62,9 +62,16 @@ client.on("message", async (message) => {
         let leaderBoardObject = JSON.parse(response);
         let members = Object.getOwnPropertyNames(leaderBoardObject.members).map(key => leaderBoardObject.members[key]) || [];
 
+        let players = "";
         members.forEach((object, index) => {
-            leaderBoardTemplate.addField(members[index].name, members[index].local_score + " puan ve " + members[index].stars + " adet yıldıza sahip.");
+            if (players.length > 800) {
+                leaderBoardTemplate.addField("_", players);
+                players = members[index].name + " isimli katılımcı " + members[index].local_score + " miktar puana sahip.\n";
+            } else {
+                players = players + members[index].name + " isimli katılımcı " + members[index].local_score + " miktar puana sahip.\n";
+            }
         });
+        leaderBoardTemplate.addField("_", players);
         message.channel.send(leaderBoardTemplate);
     }
 
@@ -82,9 +89,16 @@ client.on("message", async (message) => {
         let leaderBoardObject = JSON.parse(response);
         let members = Object.getOwnPropertyNames(leaderBoardObject.members).map(key => leaderBoardObject.members[key]) || [];
 
+        let players = "";
         members.forEach((object, index) => {
-            leaderBoardTemplate.addField(members[index].name, members[index].local_score + " puan ve " + members[index].stars + " adet yıldıza sahip.");
+            if (players.length > 800) {
+                leaderBoardTemplate.addField("_", players);
+                players = members[index].name + " isimli katılımcı " + members[index].local_score + " miktar puana sahip.\n";
+            } else {
+                players = players + members[index].name + " isimli katılımcı " + members[index].local_score + " miktar puana sahip.\n";
+            }
         });
+        leaderBoardTemplate.addField("_", players);
         message.channel.send(leaderBoardTemplate);
     }
 });
