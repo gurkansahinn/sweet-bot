@@ -52,6 +52,7 @@ client.on("message", async (message) => {
         message.channel.send("Beni rahat bırak.");
     }
 
+    console.log("test");
     if (!message.content.startsWith(process.env.prefix) || message.author.bot) return;
 
     const args = message.content.slice(process.env.prefix.length).trim().split(/ +/);
