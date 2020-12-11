@@ -1,6 +1,5 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const dotenv = require('dotenv');
 
 require("./leaderboard");
 
@@ -9,8 +8,6 @@ const client = new Discord.Client();
 
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./src/sweet/commands').filter(file => file.endsWith('.js'));
-
-dotenv.config();
 
 function Sweet(token) {
     this.token = token;
@@ -52,15 +49,13 @@ client.on("message", async (message) => {
         message.channel.send("Beni rahat bırak.");
     }
 
-    console.log("test");
     if (!message.content.startsWith("!") || message.author.bot) return;
 
     const args = message.content.slice(1).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
-    console.log("tset");
     if (!client.commands.has(command)) return;
-    console.log("testt");
+
     try {
         client.commands.get(command).execute(message, args);
     } catch (error) {
