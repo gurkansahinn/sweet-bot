@@ -66,4 +66,4 @@ client.on("message", async (message) => {
     }
 });
 
-module.exports = Sweet, client;
+module.exports = Sweet;
