@@ -67,6 +67,26 @@ client.on("message", async (message) => {
         });
         message.channel.send(leaderBoardTemplate);
     }
+
+    if (cmd === "openmp.aoc2020") {
+
+        const leaderBoardTemplate = new Discord.MessageEmbed()
+            .setColor(15844367)
+            .setURL('https://adventofcode.com')
+            .setDescription('Advent Of Code 2020 - Liderlik Tablosu (OPEN.MP)')
+            .setThumbnail('https://repository-images.githubusercontent.com/317076987/2058f880-327b-11eb-9a91-71903b2d5120')
+            .setTimestamp();
+
+        const response = await getLeaderBoardData("https://adventofcode.com/2020/leaderboard/private/view/654104.json");
+
+        let leaderBoardObject = JSON.parse(response);
+        let members = Object.getOwnPropertyNames(leaderBoardObject.members).map(key => leaderBoardObject.members[key]) || [];
+
+        members.forEach((object, index) => {
+            leaderBoardTemplate.addField(members[index].name, members[index].local_score + " puan ve " + members[index].stars + " adet yıldıza sahip.");
+        });
+        message.channel.send(leaderBoardTemplate);
+    }
 });
 
 async function getLeaderBoardData(url = '') {
