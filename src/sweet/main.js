@@ -36,15 +36,15 @@ Sweet.prototype.setStatus = function setStatus(statusType, statusText, statusUrl
     this.client.user.setActivity(statusText, { type: "STREAMING", url: statusUrl })
 }
 
+for (const file of commandFiles) {
+    console.log(file + " bağlantılı komut yüklendi.");
+    const command = require(`./commands/${file}`);
+
+    client.commands.set(command.name, command);
+}
+
 client.on('ready', async () => {
     console.log(`${client.user.tag} aktif edildi!`);
-
-    for (const file of commandFiles) {
-        console.log(file + " bağlantılı komut yüklendi.");
-        const command = require(`./commands/${file}`);
-
-        client.commands.set(command.name, command);
-    }
 });
 
 client.on("message", async (message) => {
