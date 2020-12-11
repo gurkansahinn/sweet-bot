@@ -34,6 +34,10 @@ client.on('ready', async () => {
 });
 
 client.on("message", async (message) => {
+    if (message.content == "Sweet") {
+        message.channel.send("Beni rahat bırak.");
+    }
+
     const prefix = "!";
 
     if (message.author.bot) return;
@@ -55,10 +59,8 @@ client.on("message", async (message) => {
 
         const response = await getLeaderBoardData("https://adventofcode.com/2020/leaderboard/private/view/1156609.json");
 
-        var leaderBoardObject = JSON.parse(response);
-
-        const membersObject = leaderBoardObject.members;
-        let members = Object.getOwnPropertyNames(membersObject).map(key => membersObject[key]) || [];
+        let leaderBoardObject = JSON.parse(response);
+        let members = Object.getOwnPropertyNames(leaderBoardObject.members).map(key => leaderBoardObject.members[key]) || [];
 
         members.forEach((object, index) => {
             leaderBoardTemplate.addField(members[index].name, members[index].local_score + " puan ve " + members[index].stars + " adet yıldıza sahip.");
