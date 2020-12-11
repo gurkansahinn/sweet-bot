@@ -61,7 +61,7 @@ client.on("message", async (message) => {
         let members = Object.getOwnPropertyNames(membersObject).map(key => membersObject[key]) || [];
 
         members.forEach((object, index) => {
-            leaderBoardTemplate.addField(members[index].name, members[index].local_score + "puan ve " + members[index].stars + " adet yıldıza sahip.");
+            leaderBoardTemplate.addField(members[index].name, members[index].local_score + " puan ve " + members[index].stars + " adet yıldıza sahip.");
         });
         message.channel.send(leaderBoardTemplate);
     }
