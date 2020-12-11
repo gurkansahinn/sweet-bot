@@ -57,10 +57,10 @@ client.on("message", async (message) => {
     const args = message.content.slice(process.env.prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
+    console.log("tset");
     if (!client.commands.has(command)) return;
-
+    console.log("testt");
     try {
-        console.log("test");
         client.commands.get(command).execute(message, args);
     } catch (error) {
         console.error(error);
