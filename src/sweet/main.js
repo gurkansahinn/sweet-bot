@@ -53,7 +53,7 @@ client.on("message", async (message) => {
     }
 
     console.log("test");
-    if (!message.content.startsWith(process.env.prefix) || message.author.bot) return;
+    if (!message.content.startsWith("!") || message.author.bot) return;
 
     const args = message.content.slice(process.env.prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
