@@ -45,7 +45,7 @@ client.on('ready', async () => {
 });
 
 client.on("message", async (message) => {
-    if (message.content === "Sweet" || message.content === "sweet") {
+    if (message.content.toLowerCase() === "sweet") {
         const messages = [
             `Kahretsin, tekrar başlıyoruz.`,
             `Grove Street Aileleri artık büyük değil.`,
@@ -53,10 +53,22 @@ client.on("message", async (message) => {
             `Grove Street kraldır! Benimle söyleyin zenciler, Grove Street kraldır! EVET!`,
             `Gidelim.`,
             `Yapma! Ne yapıyorsun? Carl, Brian, kesin şunu!`,
-            `Yanlış evi seçtin, pislik!`
-        ]
-
+            `Yanlış evi seçtin, pislik!`,
+            `Kahrolası treni takip et CJ!`,
+            `Sakinleş Big Smoke, SAKİNLEŞ!`,
+            `Ryder haklı. Hepimiz ayrılalım ve daha sonra tekrar buluşalım.`,
+            `Adamım, kimse mahalleye önem vermiyor.`,
+            `Bilmiyorum adamım!`,
+            `_Megafon Sesi: LSPD! aracını durdur! HEY HEY, NE YAPIYORSUN? BİZİ ÖLDÜRECEKSİN._`,
+        ];
         message.channel.send(messages[Math.floor(Math.random() * 7)]);
+    }
+
+    if (message.content.toLowerCase() === "grove street kraldır!" || message.content.toLowerCase() === "grove street kraldır") {
+        message.channel.send("EVET, EVET GROVE STREET KRALDIR!");
+
+        const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'coolguy');
+        message.react(reactionEmoji);
     }
 
     if (!message.content.startsWith("!") || message.author.bot) return;
