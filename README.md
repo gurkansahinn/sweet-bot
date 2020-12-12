@@ -9,4 +9,4 @@ Sağ üst tarafta bulunan Fork butonuna tıklayın ve kendi github profilinizde 
 + Advent Of Code API'ı ile tam zamanlı listeye erişim. (yapıldı)
 - Sweet ile birlikte anlık sohbet edilebilecek.
 - AoC için hazırlanan komuta highscore önceliği eklenecek ve kodları düzenlenecek. (geçici önlem alındı fakat kodlar spagetti)
-- Wiki görüntüleme rework edilecek ve her sayfa içeriği için uyarlanacak.
+- Wiki görüntüleme rework edilecek ve her sayfa içeriği için uyarlanacak. (yapıldı)

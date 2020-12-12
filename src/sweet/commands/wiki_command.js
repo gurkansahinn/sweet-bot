@@ -17,10 +17,10 @@ module.exports = {
                 return message.channel.send(`${message.author}, böyle bir callback veya fonksiyon bulunamadı.`);
             }
 
-            const leaderBoardTemplate = wiki.getMessageTemplate(responseFunction);
+            const leaderBoardTemplate = wiki.getMessageTemplate("https://open.mp/tr/docs/translations/tr/scripting/functions/" + args[0], responseFunction);
             message.channel.send(leaderBoardTemplate);
         } else {
-            const leaderBoardTemplate = wiki.getMessageTemplate(response);
+            const leaderBoardTemplate = wiki.getMessageTemplate("https://open.mp/tr/docs/translations/tr/scripting/callbacks/" + args[0], response);
             message.channel.send(leaderBoardTemplate);
         }
     },

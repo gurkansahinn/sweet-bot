@@ -7,7 +7,7 @@ async function getWikiPage(name = '') {
     return response.text();
 }
 
-function getMessageTemplate(response) {
+function getMessageTemplate(pageUrl, response) {
     const title = response.slice(0, response.lastIndexOf("description")).replace("---", "").replace("title: ", "");
     const description = response.slice(response.lastIndexOf("description:") + 13, response.lastIndexOf("tags"))
     const params = response.slice(response.lastIndexOf("| -"), response.lastIndexOf("## Çalışınca Vereceği Sonuçlar"));
@@ -17,7 +17,8 @@ function getMessageTemplate(response) {
         title: title,
         description: description,
         params: params,
-        example: example
+        example: example,
+        pageUrl: pageUrl
     };
 
     const leaderBoardTemplate = new Discord.MessageEmbed()
@@ -29,11 +30,13 @@ function getMessageTemplate(response) {
 
     leaderBoardTemplate.addField("Açıklama", wikiResult.description);
 
-    if (wikiResult.params.length < 1000) {
+    if (wikiResult.params.length < 1000 && wikiResult.params.length != 0) {
         leaderBoardTemplate.addField("Parametreler", wikiResult.params);
     }
 
     leaderBoardTemplate.addField("Örnekler", "```" + wikiResult.example + "```");
+
+    leaderBoardTemplate.addField("OPEN.MP", "Eğer ki içeriğinin bir kısmını göremiyorsanız " + wikiResult.pageUrl + " adresine tıklayarak gidebilirsiniz.");
     return leaderBoardTemplate;
 }
 
