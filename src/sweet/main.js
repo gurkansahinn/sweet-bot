@@ -45,7 +45,7 @@ client.on('ready', async () => {
 });
 
 client.on("message", async (message) => {
-    if (message.content == "Sweet") {
+    if (message.content === "Sweet" || message.content === "sweet") {
         const messages = [
             `Kahretsin, tekrar başlıyoruz.`,
             `Grove Street Aileleri artık büyük değil.`,
