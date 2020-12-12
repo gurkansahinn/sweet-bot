@@ -46,7 +46,17 @@ client.on('ready', async () => {
 
 client.on("message", async (message) => {
     if (message.content == "Sweet") {
-        message.channel.send("Beni rahat bırak.");
+        const messages = [
+            `Kahretsin, tekrar başlıyoruz.`,
+            `Grove Street Aileleri artık büyük değil.`,
+            `Grove Street, ev. En azından her şeyi berbat etmeden önce öyleydi.`,
+            `Grove Street kraldır! Benimle söyleyin zenciler, Grove Street kraldır! EVET!`,
+            `Gidelim.`,
+            `Yapma! Ne yapıyorsun? Carl, Brian, kesin şunu!`,
+            `Yanlış evi seçtin, pislik!`
+        ]
+
+        message.channel.send(messages[Math.floor(Math.random() * 7)]);
     }
 
     if (!message.content.startsWith("!") || message.author.bot) return;
