@@ -1,8 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 
-require("./leaderboard");
-
 let sweet = null;
 const client = new Discord.Client();
 
