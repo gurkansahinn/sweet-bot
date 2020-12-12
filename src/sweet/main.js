@@ -58,6 +58,7 @@ client.on("message", async (message) => {
             `Adamım, kimse mahalleye önem vermiyor.`,
             `Bilmiyorum adamım!`,
             `_Megafon Sesi: LSPD! aracını durdur! HEY HEY, NE YAPIYORSUN? BİZİ ÖLDÜRECEKSİN._`,
+            `Hey, hey! Big Smoke, it's me, Carl! Chill! Chill!`,
         ];
         message.channel.send(messages[Math.floor(Math.random() * 7)]);
     }
