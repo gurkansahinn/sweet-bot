@@ -37,7 +37,7 @@ function Sweet(token) {
     this.login(this.client);
 }
 
-/* random mesaj fonksiyonu */
+/* random mesaj fonksiyonu - aktif değil */
 
 function RandomMessage(messageArr) {
 
@@ -79,12 +79,12 @@ for (const file of commandFiles) {
 client.on('ready', async () => {
     console.log(`${client.user.tag} aktif edildi!`);
 
-    /* random mesaj başlatma kısmı */
-    try {
+    /* random mesaj başlatma kısmı - aktif değil çünkü düzenli değil */
+    /*try {
         let channels = client.channels.cache.array();
         for (const channel of channels) { channelIds.push(channel.id); }
         RandomMessage(messages);
-    } catch(err) { console.log(err); }
+    } catch (err) { console.log(err); }*/
     /* */
 });
 
