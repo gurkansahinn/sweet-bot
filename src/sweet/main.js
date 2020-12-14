@@ -90,7 +90,7 @@ client.on('ready', async () => {
 
 client.on("message", async (message) => {
     if (message.content.toLowerCase() === "sweet") {
-        message.channel.send(messages[Math.floor(Math.random() * 7)]);
+        message.channel.send(messages[Math.floor(Math.random() * messages.length)]);
     }
 
     if (message.content.toLowerCase() === "grove street kraldır!" || message.content.toLowerCase() === "grove street kraldır") {
