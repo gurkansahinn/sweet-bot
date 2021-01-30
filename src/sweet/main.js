@@ -28,7 +28,20 @@ const messages = [
     `Geç kaldık, hadi koyulalım şu işe!`
 ];
 
-const channelIds = [];
+/* kanal idleri
+
+const channels = [
+    '786000075980800050',
+    '786245874321063956',
+    '786018751535513642',
+    '786018781302095872',
+    '796382866908250142',
+    '786018838541631508',
+    '786279746169995344',
+    '786263778685091860'
+];
+
+*/
 
 function Sweet(token) {
     this.token = token;
@@ -37,20 +50,16 @@ function Sweet(token) {
     this.login(this.client);
 }
 
-/* random mesaj fonksiyonu - aktif değil */
+/* random mesaj fonksiyonu
 
 function RandomMessage(messageArr) {
+    client.channels.cache.get(channels[Math.floor(Math.random() * channels.length)]).
+    send(messageArr[Math.floor(Math.random() * messageArr.length)]);
 
-    const data = {};
-    const ch = channelIds[Math.floor(Math.random() * (channelIds.length + 1))];
-    const message = new Discord.Message(client.id, data, ch);
-
-    message.ch.send(messageArr[Math.floor(Math.random() * messageArr.length)]);
     setTimeout(() => { RandomMessage(messages); }, (Math.floor(Math.random() * messageArr.length) * 15000));
-
 }
 
-/* */
+*/
 
 Sweet.prototype.login = async function login(client) {
     await this.client.login(this.token);
@@ -79,13 +88,11 @@ for (const file of commandFiles) {
 client.on('ready', async () => {
     console.log(`${client.user.tag} aktif edildi!`);
 
-    /* random mesaj başlatma kısmı - aktif değil çünkü düzenli değil */
-    /*try {
-        let channels = client.channels.cache.array();
-        for (const channel of channels) { channelIds.push(channel.id); }
-        RandomMessage(messages);
-    } catch (err) { console.log(err); }*/
-    /* */
+    /* random mesaj başlatma kısmı
+
+    RandomMessage(messages);
+    
+    */
 });
 
 client.on("message", async (message) => {
