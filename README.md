@@ -11,3 +11,4 @@ Sağ üst tarafta bulunan Fork butonuna tıklayın ve kendi github profilinizde 
 + AoC için hazırlanan komuta highscore önceliği eklenecek ve kodları düzenlenecek. (yapıldı)
 + Wiki görüntüleme rework edilecek ve her sayfa içeriği için uyarlanacak. (yapıldı)
 - Durduk yere herhangi bir kanala mesajlarından göndermesi.
+- 
