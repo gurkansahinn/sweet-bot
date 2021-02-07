@@ -1,5 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
+const { send } = require('process');
 
 let sweet = null;
 const client = new Discord.Client();
@@ -28,8 +29,6 @@ const messages = [
     `Geç kaldık, hadi koyulalım şu işe!`
 ];
 
-/* kanal idleri
-
 const channels = [
     '786000075980800050',
     '786245874321063956',
@@ -41,8 +40,6 @@ const channels = [
     '786263778685091860'
 ];
 
-*/
-
 function Sweet(token) {
     this.token = token;
     this.client = client;
@@ -50,23 +47,25 @@ function Sweet(token) {
     this.login(this.client);
 }
 
-/* random mesaj fonksiyonu
+function RandomMessage() {
+    var randomChannel = Math.floor(Math.random() * channels.length);
+    var randomChannelMessage = Math.floor(Math.random() * messages.lenght);
 
-function RandomMessage(messageArr) {
-    client.channels.cache.get(channels[Math.floor(Math.random() * channels.length)]).
-    send(messageArr[Math.floor(Math.random() * messageArr.length)]);
+    randomChannel.messages.fetch({ limit: 1 }).then(messages => {
+        let lastMessage = messages.first();
 
-    setTimeout(() => { RandomMessage(messages); }, (Math.floor(Math.random() * messageArr.length) * 15000));
+        if (!lastMessage.author.bot) {
+            client.channels.get(randomChannel).send(randomChannelMessage);
+        }
+    })
+    .catch(console.error);
 }
-
-*/
 
 Sweet.prototype.login = async function login(client) {
     await this.client.login(this.token);
 
     sweet = this;
     this.setStatus("Online", "SA-MP Geliştirici Topluluğu", "https://discord.gg/Df4Bv2ewgw");
-
 }
 
 Sweet.prototype.token = function token() {
@@ -88,11 +87,7 @@ for (const file of commandFiles) {
 client.on('ready', async () => {
     console.log(`${client.user.tag} aktif edildi!`);
 
-    /* random mesaj başlatma kısmı
-
-    RandomMessage(messages);
-    
-    */
+    setTimeout('RandomMessage();', 15000);
 });
 
 client.on("message", async (message) => {
