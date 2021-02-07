@@ -30,14 +30,7 @@ const messages = [
 ];
 
 const channels = [
-    '786000075980800050',
-    '786245874321063956',
-    '786018751535513642',
-    '786018781302095872',
-    '796382866908250142',
-    '786018838541631508',
-    '786279746169995344',
-    '786263778685091860'
+    '808070096161210419'
 ];
 
 function Sweet(token) {
@@ -72,27 +65,25 @@ for (const file of commandFiles) {
 
 client.on('ready', async () => {
     console.log(`${client.user.tag} aktif edildi!`);
-
-    setTimeout('RandomMessage();', 15000);
 });
 
 function RandomMessage() {
     var randomChannel = Math.floor(Math.random() * channels.length);
     var randomChannelMessage = Math.floor(Math.random() * messages.lenght);
 
-    randomChannel.messages.fetch({ limit: 1 }).then(messages => {
-        let lastMessage = messages.first();
-
-        if (!lastMessage.author.bot) {
-            client.channels.get(randomChannel).send(randomChannelMessage);
-        }
-    })
-    .catch(console.error);
+    client.channels.get(randomChannel).send(randomChannelMessage);
 }
 
 client.on("message", async (message) => {
     if (message.content.toLowerCase() === "sweet") {
         message.channel.send(messages[Math.floor(Math.random() * messages.length)]);
+    }
+    
+    if(message.content.toLowerCase() === "test" && message.author.id === "708138652839968799") {
+        const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'coolguy');
+        message.react(reactionEmoji);
+
+        setTimeout('RandomMessage();', 15000);
     }
 
     if (message.content.toLowerCase() === "grove street kraldır!" || message.content.toLowerCase() === "grove street kraldır") {
