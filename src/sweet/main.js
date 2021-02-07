@@ -47,20 +47,6 @@ function Sweet(token) {
     this.login(this.client);
 }
 
-function RandomMessage() {
-    var randomChannel = Math.floor(Math.random() * channels.length);
-    var randomChannelMessage = Math.floor(Math.random() * messages.lenght);
-
-    randomChannel.messages.fetch({ limit: 1 }).then(messages => {
-        let lastMessage = messages.first();
-
-        if (!lastMessage.author.bot) {
-            client.channels.get(randomChannel).send(randomChannelMessage);
-        }
-    })
-    .catch(console.error);
-}
-
 Sweet.prototype.login = async function login(client) {
     await this.client.login(this.token);
 
@@ -89,6 +75,20 @@ client.on('ready', async () => {
 
     setTimeout('RandomMessage();', 15000);
 });
+
+function RandomMessage() {
+    var randomChannel = Math.floor(Math.random() * channels.length);
+    var randomChannelMessage = Math.floor(Math.random() * messages.lenght);
+
+    randomChannel.messages.fetch({ limit: 1 }).then(messages => {
+        let lastMessage = messages.first();
+
+        if (!lastMessage.author.bot) {
+            client.channels.get(randomChannel).send(randomChannelMessage);
+        }
+    })
+    .catch(console.error);
+}
 
 client.on("message", async (message) => {
     if (message.content.toLowerCase() === "sweet") {
