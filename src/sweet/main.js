@@ -71,7 +71,7 @@ function RandomMessage() {
     var randomChannel = Math.floor(Math.random() * channels.length);
     var randomChannelMessage = Math.floor(Math.random() * messages.lenght);
 
-    client.channels.get(randomChannel).send(randomChannelMessage);
+    client.channels.cache.get(randomChannel).send(randomChannelMessage);
 }
 
 client.on("message", async (message) => {
