@@ -83,7 +83,7 @@ client.on("message", async (message) => {
         const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'coolguy');
         message.react(reactionEmoji);
 
-        setTimeout('RandomMessage();', 15000);
+        setTimeout(RandomMessage, 15000);
     }
 
     if (message.content.toLowerCase() === "grove street kraldır!" || message.content.toLowerCase() === "grove street kraldır") {
