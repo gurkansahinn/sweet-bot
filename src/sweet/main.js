@@ -30,7 +30,8 @@ const messages = [
 ];
 
 const channels = [
-    '808070096161210419'
+    '808070096161210419',
+    '808077395578978324'
 ];
 
 function Sweet(token) {
@@ -68,8 +69,8 @@ client.on('ready', async () => {
 });
 
 function RandomMessage() {
-    var randomChannel = Math.floor(Math.random() * channels.length);
-    var randomChannelMessage = Math.floor(Math.random() * messages.lenght);
+    var randomChannel = channels[Math.floor(Math.random() * channels.length)];
+    var randomChannelMessage = messages[Math.floor(Math.random() * messages.lenght)];
 
     client.channels.cache.get(randomChannel).send(randomChannelMessage);
 }
