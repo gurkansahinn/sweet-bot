@@ -78,10 +78,10 @@ function BumpMessage() {
 }
 
 function RandomMessage() {
-    var randomChannel = channels[Math.floor(Math.random() * channels.length)];
+    /*var randomChannel = channels[Math.floor(Math.random() * channels.length)];
     var randomChannelMessage = messages[Math.floor(Math.random() * messages.lenght)];
 
-    client.channels.cache.get(randomChannel).send("oldum mu " + randomChannelMessage);
+    client.channels.cache.get(randomChannel).send("oldum mu " + randomChannelMessage);*/
 }
 
 client.on("message", async (message) => {
