@@ -34,6 +34,8 @@ const channels = [
     '808077395578978324'
 ];
 
+const botChannel = '808641499729231882';
+
 function Sweet(token) {
     this.token = token;
     this.client = client;
@@ -66,7 +68,14 @@ for (const file of commandFiles) {
 
 client.on('ready', async () => {
     console.log(`${client.user.tag} aktif edildi!`);
+    BumpMessage();
 });
+
+function BumpMessage() {
+    client.channels.cache.get(botChannel).send('!d bump');
+    console.log('Sunucu bumplandı.');
+    setTimeout(BumpMessage, 121 * 60 * 1000);
+}
 
 function RandomMessage() {
     var randomChannel = channels[Math.floor(Math.random() * channels.length)];
