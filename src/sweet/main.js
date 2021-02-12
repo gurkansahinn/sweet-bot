@@ -101,7 +101,13 @@ client.on("message", async (message) => {
 	if(message.content.toLowerCase() === "bumprolver") {
         let addThisRole = message.guild.roles.cache.find(role => role.id == "809887454614126602");
 		message.member.roles.add(addThisRole);
-	}
+    }
+    
+    if(message.content.toLowerCase() === "bumptest" && message.author.id === "374959774392909824") {
+        if(message.author.id === "374959774392909824" || message.author.id = "247093769734848517") {
+            BumpMessage();
+        }
+    }
 
     if (message.content.toLowerCase().includes("grove street kraldır")) {
         message.channel.send("EVET, EVET GROVE STREET KRALDIR!");
