@@ -12,3 +12,4 @@ Sağ üst tarafta bulunan Fork butonuna tıklayın ve kendi github profilinizde 
 + Wiki görüntüleme rework edilecek ve her sayfa içeriği için uyarlanacak. (yapıldı)
 - Durduk yere herhangi bir kanala mesajlarından göndermesi.
 - 
+-
