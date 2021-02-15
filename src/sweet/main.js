@@ -103,8 +103,8 @@ client.on("message", async (message) => {
 		message.member.roles.add(addThisRole);
     }
     
-    if(message.content.toLowerCase() === "bumptest" && message.author.id === "374959774392909824") {
-        if(message.author.id === "374959774392909824" || message.author.id = "247093769734848517") {
+    if(message.content.toLowerCase() === "bumptest") {
+        if(message.author.id === "374959774392909824" || message.author.id === "247093769734848517") {
             BumpMessage();
         }
     }
