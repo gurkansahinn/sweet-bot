@@ -36,8 +36,6 @@ const channels = [
 
 const botChannel = '808641499729231882';
 
-const bumpRoleId = '809887454614126602';
-
 function Sweet(token) {
     this.token = token;
     this.client = client;
@@ -70,11 +68,11 @@ for (const file of commandFiles) {
 
 client.on('ready', async () => {
     console.log(`${client.user.tag} aktif edildi!`);
-    setTimeout(BumpMessage, 121 * 60 * 1000);
+    BumpMessage();
 });
 
 function BumpMessage() {
-    client.channels.cache.get(botChannel).send(`<&${bumpRoleId}> Groove için bumplayın!`);
+    client.channels.cache.get(botChannel).send('!d bump');
     console.log('Sunucu bumplandı.');
     setTimeout(BumpMessage, 121 * 60 * 1000);
 }
@@ -97,19 +95,8 @@ client.on("message", async (message) => {
 
         setTimeout(RandomMessage, 15000);
     }
-	
-	if(message.content.toLowerCase() === "bumprolver") {
-        let addThisRole = message.guild.roles.cache.find(role => role.id == "809887454614126602");
-		message.member.roles.add(addThisRole);
-    }
-    
-    if(message.content.toLowerCase() === "bumptest" && message.author.id === "374959774392909824") {
-        if(message.author.id === "374959774392909824" || message.author.id = "247093769734848517") {
-            BumpMessage();
-        }
-    }
 
-    if (message.content.toLowerCase().includes("grove street kraldır")) {
+    if (message.content.toLowerCase() === "grove street kraldır!" || message.content.toLowerCase() === "grove street kraldır") {
         message.channel.send("EVET, EVET GROVE STREET KRALDIR!");
 
         const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'coolguy');
