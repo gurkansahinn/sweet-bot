@@ -74,7 +74,7 @@ client.on('ready', async () => {
 });
 
 function BumpMessage() {
-    client.channels.cache.get(botChannel).send(`<&${bumpRoleId}> Groove için bumplayın!`);
+    client.channels.cache.get(botChannel).send(`<@&${bumpRoleId}> Groove için bumplayın!`);
     console.log('Sunucu bumplandı.');
     setTimeout(BumpMessage, 121 * 60 * 1000);
 }
