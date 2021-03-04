@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const { send } = require('process');
+const { send, kill } = require('process');
 
 let sweet = null;
 const client = new Discord.Client();
@@ -37,6 +37,7 @@ const channels = [
 const botChannel = '808641499729231882';
 
 const bumpRoleId = '809887454614126602';
+let bumpTimeout;
 
 function Sweet(token) {
     this.token = token;
@@ -70,13 +71,14 @@ for (const file of commandFiles) {
 
 client.on('ready', async () => {
     console.log(`${client.user.tag} aktif edildi!`);
-    setTimeout(BumpMessage, 121 * 60 * 1000);
+    bumpTimeout = setTimeout(BumpMessage, 121 * 60 * 1000);
 });
 
 function BumpMessage() {
-    client.channels.cache.get(botChannel).send(`<@&${bumpRoleId}> Groove için bumplayın!`);
-    console.log('Sunucu bumplandı.');
-    setTimeout(BumpMessage, 121 * 60 * 1000);
+    client.channels.cache.get(botChannel).send(`Grove için bumplayın!`);
+    console.log('Bump mesajı gönderildi.');
+    clearTimeout(bumpTimeout);
+    bumpTimeout = setTimeout(BumpMessage, 121 * 60 * 1000);
 }
 
 function RandomMessage() {
@@ -97,10 +99,10 @@ client.on("message", async (message) => {
 
         setTimeout(RandomMessage, 15000);
     }
-	
-	if(message.content.toLowerCase() === "bumprolver") {
-        let addThisRole = message.guild.roles.cache.find(role => role.id == "809887454614126602");
-		message.member.roles.add(addThisRole);
+
+    if(message.content.toLowerCase() == '!d bump') {
+        clearTimeout(bumpTimeout);
+        bumpTimeout = setTimeout(BumpMessage, 121 * 60 * 1000);
     }
     
     if(message.content.toLowerCase() === "bumptest") {
