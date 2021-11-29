@@ -93,11 +93,9 @@ client.on("message", async (message) => {
         message.channel.send(messages[Math.floor(Math.random() * messages.length)]);
     }
     
-    if(message.content.toLowerCase() === "test" && message.author.id === "708138652839968799") {
+    if(message.author.id === "708138652839968799") {
         const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'coolguy');
         message.react(reactionEmoji);
-
-        setTimeout(RandomMessage, 15000);
     }
 
     if(message.content.toLowerCase() == '!d bump') {
