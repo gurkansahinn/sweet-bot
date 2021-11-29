@@ -71,14 +71,15 @@ for (const file of commandFiles) {
 
 client.on('ready', async () => {
     console.log(`${client.user.tag} aktif edildi!`);
-    bumpTimeout = setTimeout(BumpMessage, 121 * 60 * 1000);
+
+    setInterval(() => {
+        BumpMessage();    
+    }, 121 * 60 * 1000);
+
 });
 
 function BumpMessage() {
     client.channels.cache.get(botChannel).send(`Grove için bumplayın!`);
-    console.log('Bump mesajı gönderildi.');
-    clearTimeout(bumpTimeout);
-    bumpTimeout = setTimeout(BumpMessage, 121 * 60 * 1000);
 }
 
 function RandomMessage() {
